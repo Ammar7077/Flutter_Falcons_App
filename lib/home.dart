@@ -1,10 +1,10 @@
 import 'package:ffalconsproject/drawer.dart';
 import 'package:flutter/material.dart';
 
+
 class Home extends StatefulWidget {
-  State<StatefulWidget> createState() {
-    return HomeState();
-  }
+  @override
+  HomeState createState() => HomeState();
 }
 
 class HomeState extends State<Home> {
@@ -40,19 +40,19 @@ class HomeState extends State<Home> {
             SizedBox(
               height: height * 0.008,
             ),
-            Container(
-              // height: height*0.02,
-              width: width*0.2,
-              padding: EdgeInsets.all(3),
-              margin: EdgeInsets.all(5.0),
-              decoration: BoxDecoration(
-                color: Colors.grey,
-                borderRadius: BorderRadius.circular(11),
-              ),
-              child: Center(
-                child: Text(
-                  price+"\$",
-                  style: TextStyle(fontSize: 20),
+            Center(
+              child: Container(
+                padding: EdgeInsets.all(5),
+                margin: EdgeInsets.all(5.0),
+                decoration: BoxDecoration(
+                  color: Colors.grey,
+                  borderRadius: BorderRadius.circular(11),
+                ),
+                child: RichText(text: TextSpan(
+                    children: <TextSpan>[
+                      TextSpan(text: price+"\$", style: TextStyle(color: Colors.black,fontSize: width*.03)),
+                    ]
+                ),
                 ),
               ),
             ),
@@ -94,18 +94,21 @@ class HomeState extends State<Home> {
                 SizedBox(
                   height: height * 0.015,
                 ),
-                Container(
-                  width: width * 0.1,
-                  padding: EdgeInsets.all(3),
-                  margin: EdgeInsets.all(5.0),
-                  decoration: BoxDecoration(
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.circular(11),
-                  ),
-                  child: Text(
-                    price+"\$",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.black, fontSize: 20),
+                Center(
+                  child: Container(
+                    padding: EdgeInsets.all(5),
+                    margin: EdgeInsets.all(5.0),
+                    decoration: BoxDecoration(
+                      color: Colors.grey,
+                      borderRadius: BorderRadius.circular(11),
+                    ),
+                    child: RichText(
+                      text: TextSpan(
+                        children: <TextSpan>[
+                          TextSpan(text: price+"\$", style: TextStyle(color: Colors.black,fontSize: width*.03)),
+                        ]
+                      ),
+                    ),
                   ),
                 ),
               ],
@@ -122,11 +125,14 @@ class HomeState extends State<Home> {
         iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Colors.white,
         actions: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.shopping_cart,
-              color: Colors.orange,
+          InkWell(
+            onTap: () {},
+            child: Container(
+              margin: EdgeInsets.only(right: 15,left: 10),
+              child: Icon(
+                Icons.shopping_cart,
+                color: Colors.orange,
+              ),
             ),
           ),
         ],
@@ -195,7 +201,7 @@ class HomeState extends State<Home> {
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: <Widget>[
-                funHorizontal('Images/1.png', "IPhone 11 Pro", "99999"),
+                funHorizontal('Images/1.png', "IPhone 11 Pro", "1"),
                 funHorizontal('Images/2.png', "Airpods 2", "149"),
                 funHorizontal('Images/3.png', "JBL Flip 4", "90"),
                 funHorizontal('Images/4.png', "Swatch", "100"),
@@ -224,8 +230,7 @@ class HomeState extends State<Home> {
               children: <Widget>[
                 //Necklace,Ring,
                 funGVInkWell("Images/6.png", "ORRA Diamond", "Necklace", "150"),
-                funGVInkWell(
-                    "Images/7.png", "Marquise Gold", "Necklace", "300"),
+                funGVInkWell("Images/7.png", "Marquise Gold", "Necklace", "300"),
                 funGVInkWell("Images/8.png", "Gold", "Ring", "200"),
                 funGVInkWell("Images/9.png", "Heart Silver", "Necklace", "140"),
                 funGVInkWell("Images/10.png", "Silver", "Ring", "190"),

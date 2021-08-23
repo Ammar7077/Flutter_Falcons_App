@@ -2,11 +2,14 @@ import 'package:ffalconsproject/appColors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
+
 class MyDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+
     String personLogo =
         "https://mk0anatomieunes58h83.kinstacdn.com/wp-content/themes/cera/assets/images/avatars/user-avatar.png";
     return Drawer(
@@ -56,9 +59,9 @@ class MyDrawer extends StatelessWidget {
               height: 0,
             ),
             ListTile(
-              leading: Icon(Icons.person, size: 32),
+              leading: Icon(Icons.home, size: 32),
               title: Text(
-                "Profile",
+                "Home",
                 style: TextStyle(color: Colors.white),
               ),
               onTap: (){},
