@@ -31,7 +31,7 @@ class HomeState extends State<Home> {
                   title,
                   style: TextStyle(
                       color: Colors.black,
-                      fontSize: 17,
+                      fontSize: width*0.04,
                       fontWeight: FontWeight.w500),
                   textAlign: TextAlign.center,
                 ),
@@ -50,7 +50,7 @@ class HomeState extends State<Home> {
                 ),
                 child: RichText(text: TextSpan(
                     children: <TextSpan>[
-                      TextSpan(text: price+"\$", style: TextStyle(color: Colors.black,fontSize: width*.03)),
+                      TextSpan(text: price+"\$", style: TextStyle(color: Colors.white,fontSize: width*.035)),
                     ]
                 ),
                 ),
@@ -64,35 +64,32 @@ class HomeState extends State<Home> {
     InkWell funGVInkWell(img, title, type, price) {
       return InkWell(
         onTap: (){},
-        child: GridTile(
-          child: Container(
-            margin: EdgeInsets.all(5),
+          child: GridTile(
             child: Column(
               children: <Widget>[
                 Container(
-                  height: height * 0.2,
+                  height: height * 0.15,
+                  width: width*0.4,
                   child: Image.asset(
                     img,
                     alignment: Alignment.center,
                     fit: BoxFit.scaleDown,
                   ),
                 ),
+
                 Column(
                   children: [
                     Text(
                       title,
-                      textAlign: TextAlign.left,
-                      style: TextStyle(color: Colors.black, fontSize: 18),
+                      // textAlign: TextAlign.left,
+                      style: TextStyle(color: Colors.black, fontSize: width*0.03),
                     ),
                     Text(
                       type,
-                      textAlign: TextAlign.left,
-                      style: TextStyle(color: Colors.black, fontSize: 18),
+                      // textAlign: TextAlign.left,
+                      style: TextStyle(color: Colors.black, fontSize: width*0.03),
                     ),
                   ],
-                ),
-                SizedBox(
-                  height: height * 0.015,
                 ),
                 Center(
                   child: Container(
@@ -104,17 +101,17 @@ class HomeState extends State<Home> {
                     ),
                     child: RichText(
                       text: TextSpan(
-                        children: <TextSpan>[
-                          TextSpan(text: price+"\$", style: TextStyle(color: Colors.black,fontSize: width*.03)),
-                        ]
+                          children: <TextSpan>[
+                            TextSpan(text: price+"\$", style: TextStyle(color: Colors.white,fontSize: width*.035)),
+                          ]
                       ),
                     ),
                   ),
                 ),
+
               ],
             ),
           ),
-        ),
       );
     }
 
@@ -193,10 +190,10 @@ class HomeState extends State<Home> {
             ),
           ),
           SizedBox(
-            height: height * 0.05,
+            height: height * 0.02,
           ),
           Container(
-            height: height * 0.35,
+            height: height * 0.3,
             width: double.infinity,
             child: ListView(
               scrollDirection: Axis.horizontal,
@@ -223,7 +220,8 @@ class HomeState extends State<Home> {
             ),
           ),
           Container(
-            height: height * 0.6,
+            height: height*0.75,
+            width: width*0.2,
             child: GridView(
               gridDelegate:
                   SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
