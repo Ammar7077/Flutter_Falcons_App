@@ -56,7 +56,6 @@ class MyDrawer extends StatelessWidget {
             ),
             Divider(
               color: Colors.white,
-              height: 0,
             ),
             ListTile(
               leading: Icon(Icons.home, size: 32),

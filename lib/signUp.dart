@@ -35,7 +35,7 @@ class _SignUpPageState extends State<SignUp> {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
-
+    //----------Fill Func-----------//
     Container fillFunc(iconType, title, controlling) {
       return Container(
         padding: EdgeInsets.only(top: height * 0.02),
@@ -60,7 +60,7 @@ class _SignUpPageState extends State<SignUp> {
         ),
       );
     }
-
+    //----------Func Btn-----------//
     SizedBox btn(title, btnColor, page) {
       return SizedBox(
         width: width * 0.77,
@@ -111,79 +111,77 @@ class _SignUpPageState extends State<SignUp> {
     }
 
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              height: height,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(colors: [
-                  AppColors().backgroundFirst,
-                  AppColors().backgroundEnd,
-                ]),
-              ),
-              child: Center(
-                child: Column(
-                  children: <Widget>[
-                    Container(
-                      padding: EdgeInsets.only(top: height * 0.2),
-                      child: Text(
-                        "Sign up",
-                        style: TextStyle(
-                            fontSize: height * 0.07,
-                            fontWeight: FontWeight.w800,
-                            color: Colors.white),
+      body: Container(
+        height: height,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(colors: [
+            AppColors().backgroundFirst,
+            AppColors().backgroundEnd,
+          ]),
+        ),
+        child: Center(
+          child: 
+            SingleChildScrollView(
+              child: Column(
+                children: <Widget>[
+                  Container(
+                    padding: EdgeInsets.only(top: height * 0.1),
+                    child: Text(
+                      "Sign up",
+                      style: TextStyle(
+                          fontSize: height * 0.07,
+                          fontWeight: FontWeight.w800,
+                          color: Colors.white
                       ),
                     ),
-                    fillFunc(Icons.person, "Full Name", nameController),
-                    fillFunc(Icons.email, "Email", emailController),
-                    fillFunc(Icons.email, "Re-enter your email", reEnterEmailController),
-                    fillFunc(Icons.lock, "Password", passwordController),
-                    //-----------------------------------------------btn--
-                    Container(
-                      padding:
-                          EdgeInsets.only(right: width * 0.1, top: height * 0.03),
-                      child: ButtonBar(
-                        children: [
-                          btn("Create", AppColors().myYellow, 'signIn'),
-                          SizedBox(height: height * 0.03),
-                          SizedBox(
-                            width: width * 0.77,
-                            child: ElevatedButton(
-                              onPressed: () {
-                                Navigator.of(context).pushReplacementNamed('signIn');
-                              },
-                              child: Text(
-                                "Back",
-                                style: TextStyle(
-                                    fontSize: height * 0.023, fontWeight: FontWeight.w800),
-                              ),
-                              style: ButtonStyle(
-                                shape: MaterialStateProperty.all(
-                                  RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(15),
-                                  ),
+                  ),
+                  fillFunc(Icons.person, "Full Name", nameController),
+                  fillFunc(Icons.email, "Email", emailController),
+                  fillFunc(Icons.email, "Re-enter your email", reEnterEmailController),
+                  fillFunc(Icons.lock, "Password", passwordController),
+                  //-------------------------------------btn--
+                  Container(
+                    padding: EdgeInsets.only(right: width * 0.1, top: height * 0.03),
+                    child: ButtonBar(
+                      children: [
+                        btn("Create", AppColors().myYellow, 'signIn'),
+                        SizedBox(height: height * 0.03),
+                        SizedBox(
+                          width: width * 0.77,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              Navigator.of(context).pushReplacementNamed('signIn');
+                            },
+                            child: Text(
+                              "Back",
+                              style: TextStyle(
+                                  fontSize: height * 0.023, fontWeight: FontWeight.w800),
+                            ),
+                            style: ButtonStyle(
+                              shape: MaterialStateProperty.all(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15),
                                 ),
-                                padding: MaterialStateProperty.all(EdgeInsets.all(height * 0.02)),
-                                backgroundColor: MaterialStateProperty.all(Colors.white38),
                               ),
+                              padding: MaterialStateProperty.all(EdgeInsets.all(height * 0.02)),
+                              backgroundColor: MaterialStateProperty.all(Colors.white38),
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(top: 10),
+                          child: Visibility(
+                            visible: circularProgress,
+                            child: CircularProgressIndicator(),
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
-            Container(
-              margin: EdgeInsets.only(top: 10),
-              child: Visibility(
-                visible: circularProgress,
-                child: CircularProgressIndicator(),
-              ),
-            ),
-          ],
+
         ),
       ),
     );

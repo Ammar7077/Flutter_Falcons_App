@@ -96,67 +96,66 @@ class _ResetPasswordPageState extends State<ResetPassword> {
     }
 
     return Scaffold(
-      body: ListView(
-        children: [
-          Container(
-            height: height,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(colors: [
-                AppColors().backgroundFirst,
-                AppColors().backgroundEnd,
-              ]),
-            ),
-            child: Center(
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    padding: EdgeInsets.only(top: height*0.3),
-                    child: Text("Reset Password",
-                      style: TextStyle(fontSize: height*0.05,fontWeight: FontWeight.w800,color: Colors.white),
-                    ),
-                  ),
-                  fillFunc(Icons.email, "Email"),
-                  //-----------------------------------------------btn--
-                  Container(
-                    padding: EdgeInsets.only(right: width*0.1,top: height*0.03),
-                    child: ButtonBar(
-                      children: [
-                        btn("Send reset link", AppColors().myYellow),
-                        SizedBox(height: height*0.03),
-                        SizedBox(
-                          width: width * 0.77,
-                          child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.of(context).pushReplacementNamed('signIn');
-                            },
-                            child: Text("Back",style: TextStyle(fontSize: height*0.023,fontWeight: FontWeight.w800),),
-                            style: ButtonStyle(
-                              shape: MaterialStateProperty.all(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
+      body: Container(
+        height: height,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(colors: [
+            AppColors().backgroundFirst,
+            AppColors().backgroundEnd,
+          ]),
+        ),
+        child: 
+            Center(
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: <Widget>[
+                      Container(
+                        padding: EdgeInsets.only(top: height*0.1),
+                        child: Text("Reset Password",
+                          style: TextStyle(fontSize: height*0.05,fontWeight: FontWeight.w800,color: Colors.white),
+                        ),
+                      ),
+                      fillFunc(Icons.email, "Email"),
+                      //-----------------------------------------------btn--
+                      Container(
+                        padding: EdgeInsets.only(right: width*0.1,top: height*0.03),
+                        child: ButtonBar(
+                          children: [
+                            btn("Send reset link", AppColors().myYellow),
+                            SizedBox(height: height*0.03),
+                            SizedBox(
+                              width: width * 0.77,
+                              child: ElevatedButton(
+                                onPressed: () {
+                                  Navigator.of(context).pushReplacementNamed('signIn');
+                                },
+                                child: Text("Back",style: TextStyle(fontSize: height*0.023,fontWeight: FontWeight.w800),),
+                                style: ButtonStyle(
+                                  shape: MaterialStateProperty.all(
+                                    RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(15),
+                                    ),
+                                  ),
+                                  padding: MaterialStateProperty.all(EdgeInsets.all(height*0.02)),
+                                  backgroundColor: MaterialStateProperty.all(Colors.white38),
                                 ),
                               ),
-                              padding: MaterialStateProperty.all(EdgeInsets.all(height*0.02)),
-                              backgroundColor: MaterialStateProperty.all(Colors.white38),
                             ),
-                          ),
+                          ],
                         ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(top: 10),
-                    child: Visibility(
-                      visible: circularProgress,
-                      child: CircularProgressIndicator(),
-                    ),
-                  ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(top: 10),
+                        child: Visibility(
+                          visible: circularProgress,
+                          child: CircularProgressIndicator(),
+                        ),
+                      ),
 
-                ],
+                    ],
+                  ),
+                ),
               ),
-            ),
-          ),
-        ],
       ),
     );
   }

@@ -109,29 +109,29 @@ class _SignInPageState extends State<SignIn> {
     }
 
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              height: height,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(colors: [
-                  AppColors().backgroundFirst,
-                  AppColors().backgroundEnd,
-                ]),
-              ),
-              child: Center(
-                child: Column(
+      body: Container(
+        height: height,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(colors: [
+            AppColors().backgroundFirst,
+            AppColors().backgroundEnd,
+          ]),
+        ),
+        child: Center(
+          child:
+            SingleChildScrollView(
+              child: Column(
                   children: <Widget>[
                     Container(
-                      padding: EdgeInsets.only(top: height * 0.07),
+                      padding: EdgeInsets.only(top: height * 0.035),
                       child: Image.asset(
                         "Images/logo.png",
-                        width: width * 0.2,
-                        height: height * 0.2,
+                        width: width * 0.18,
+                        height: height * 0.18,
                       ),
                     ),
                     Container(
+                      padding: EdgeInsets.only(top: height * 0.002),
                       child: Text(
                         "Sign in",
                         style: TextStyle(
@@ -153,46 +153,46 @@ class _SignInPageState extends State<SignIn> {
                         },
                         child: Text(
                           "Forget Password?",
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(color: Colors.white,fontSize: width * 0.035, fontWeight: FontWeight.w800),
                         ),
                       ),
                     ),
                     Container(
                       padding: EdgeInsets.only(
-                          right: width * 0.1, top: height * 0.009),
+                          right: width * 0.1, top: height * 0.008),
                       child: ButtonBar(
                         children: [
                           btn("Login", AppColors().myYellow, 'homePage'),
                           SizedBox(
-                            height: height * 0.03,
+                            height: height * 0.01,
                           ),
-                      SizedBox(
-                        width: width * 0.77,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            Navigator.of(context).pushReplacementNamed('signUp');
-                          },
-                          child: Text(
-                            "Create new account",
-                            style: TextStyle(
-                                fontSize: height * 0.023, fontWeight: FontWeight.w800),
-                          ),
-                          style: ButtonStyle(
-                            shape: MaterialStateProperty.all(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15),
+                          SizedBox(
+                            width: width * 0.77,
+                            child: ElevatedButton(
+                              onPressed: () {
+                                Navigator.of(context).pushReplacementNamed('signUp');
+                              },
+                              child: Text(
+                                "Create new account",
+                                style: TextStyle(
+                                    fontSize: height * 0.023, fontWeight: FontWeight.w800),
+                              ),
+                              style: ButtonStyle(
+                                shape: MaterialStateProperty.all(
+                                  RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(15),
+                                  ),
+                                ),
+                                padding: MaterialStateProperty.all(EdgeInsets.all(height * 0.02)),
+                                backgroundColor: MaterialStateProperty.all(Colors.white38),
                               ),
                             ),
-                            padding: MaterialStateProperty.all(EdgeInsets.all(height * 0.02)),
-                            backgroundColor: MaterialStateProperty.all(Colors.white38),
                           ),
-                        ),
-                      ),
                         ],
                       ),
                     ),
                     Container(
-                      padding: EdgeInsets.only(top: height * 0.03),
+                      padding: EdgeInsets.only(top: height * 0.02),
                       child: Text("Login With",
                           style: TextStyle(
                               fontSize: height * 0.023,
@@ -220,7 +220,7 @@ class _SignInPageState extends State<SignIn> {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(top: 10),
+                      margin: EdgeInsets.only(top: height*0.02),
                       child: Visibility(
                         visible: circularProgress,
                         child: CircularProgressIndicator(),
@@ -228,9 +228,8 @@ class _SignInPageState extends State<SignIn> {
                     ),
                   ],
                 ),
-              ),
             ),
-          ],
+
         ),
       ),
     );

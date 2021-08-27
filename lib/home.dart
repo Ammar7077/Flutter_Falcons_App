@@ -16,64 +16,63 @@ class HomeState extends State<Home> {
     Container funHorizontal(img, title, price) {
       return Container(
         width: width * 0.4,
-        child: Column(
-          children: [
-            ListTile(
-              onTap: (){},
-              title: Image.asset(
-                img,
-                height: height * 0.18,
-                fit: BoxFit.fitHeight,
-              ),
-              subtitle: Container(
-                padding: EdgeInsets.symmetric(vertical: height * 0.014),
-                child: Text(
-                  title,
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: width*0.04,
-                      fontWeight: FontWeight.w500),
-                  textAlign: TextAlign.center,
+        child: InkWell(
+          onTap: (){},
+          child: Column(
+            children: [
+              Image.asset(
+                  img,
+                  height: height * 0.18,
+                  fit: BoxFit.fitHeight,
+                ),
+              Container(
+                  padding: EdgeInsets.symmetric(vertical: height * 0.014),
+                  child: Text(
+                    title,
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: width*0.04,
+                        fontWeight: FontWeight.w500),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              // SizedBox(
+              //   height: height * 0.008,
+              // ),
+              Center(
+                child: Container(
+                  padding: EdgeInsets.all(5),
+                  margin: EdgeInsets.all(5.0),
+                  decoration: BoxDecoration(
+                    color: Colors.grey,
+                    borderRadius: BorderRadius.circular(11),
+                  ),
+                  child: RichText(text: TextSpan(
+                      children: <TextSpan>[
+                        TextSpan(text: price+"\$", style: TextStyle(color: Colors.white,fontSize: width*.035)),
+                      ]
+                  ),
+                  ),
                 ),
               ),
-            ),
-            SizedBox(
-              height: height * 0.008,
-            ),
-            Center(
-              child: Container(
-                padding: EdgeInsets.all(5),
-                margin: EdgeInsets.all(5.0),
-                decoration: BoxDecoration(
-                  color: Colors.grey,
-                  borderRadius: BorderRadius.circular(11),
-                ),
-                child: RichText(text: TextSpan(
-                    children: <TextSpan>[
-                      TextSpan(text: price+"\$", style: TextStyle(color: Colors.white,fontSize: width*.035)),
-                    ]
-                ),
-                ),
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       );
     }
     //-----------Fun 2 --------------//
-    InkWell funGVInkWell(img, title, type, price) {
+    Widget funGVInkWell(img, title, type, price) {
       return InkWell(
         onTap: (){},
-          child: GridTile(
-            child: Column(
+          child: Column(
               children: <Widget>[
                 Container(
                   height: height * 0.15,
-                  width: width*0.4,
+                  // width: width*0.4,
                   child: Image.asset(
                     img,
                     alignment: Alignment.center,
-                    fit: BoxFit.scaleDown,
+                    fit: BoxFit.fitHeight,
                   ),
                 ),
 
@@ -111,7 +110,6 @@ class HomeState extends State<Home> {
 
               ],
             ),
-          ),
       );
     }
 
@@ -184,7 +182,7 @@ class HomeState extends State<Home> {
             child: Text(
               "Electronics",
               style: TextStyle(
-                  fontSize: 25,
+                  fontSize: width*0.07,
                   color: Colors.black,
                   fontWeight: FontWeight.w800),
             ),
@@ -214,17 +212,17 @@ class HomeState extends State<Home> {
             child: Text(
               "Women's Jewelry",
               style: TextStyle(
-                  fontSize: 25,
+                  fontSize: width*0.07,
                   color: Colors.black,
                   fontWeight: FontWeight.w800),
             ),
           ),
           Container(
-            height: height*0.75,
+            height: height,
             width: width*0.2,
             child: GridView(
-              gridDelegate:
-                  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+              physics: NeverScrollableScrollPhysics(),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
               children: <Widget>[
                 //Necklace,Ring,
                 funGVInkWell("Images/6.png", "ORRA Diamond", "Necklace", "150"),
