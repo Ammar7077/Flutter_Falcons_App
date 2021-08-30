@@ -140,42 +140,36 @@ class _SignUpPageState extends State<SignUp> {
                   fillFunc(Icons.email, "Re-enter your email", reEnterEmailController),
                   fillFunc(Icons.lock, "Password", passwordController),
                   //-------------------------------------btn--
+                  SizedBox(height: height * 0.03),
+                  btn("Create", AppColors().myYellow, 'signIn'),
+                  SizedBox(height: height * 0.01),
+                  SizedBox(
+                    width: width * 0.77,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.of(context).pushReplacementNamed('signIn');
+                      },
+                      child: Text(
+                        "Back",
+                        style: TextStyle(
+                            fontSize: height * 0.023, fontWeight: FontWeight.w800),
+                      ),
+                      style: ButtonStyle(
+                        shape: MaterialStateProperty.all(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                        ),
+                        padding: MaterialStateProperty.all(EdgeInsets.all(height * 0.02)),
+                        backgroundColor: MaterialStateProperty.all(Colors.white38),
+                      ),
+                    ),
+                  ),
                   Container(
-                    padding: EdgeInsets.only(right: width * 0.1, top: height * 0.03),
-                    child: ButtonBar(
-                      children: [
-                        btn("Create", AppColors().myYellow, 'signIn'),
-                        SizedBox(height: height * 0.03),
-                        SizedBox(
-                          width: width * 0.77,
-                          child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.of(context).pushReplacementNamed('signIn');
-                            },
-                            child: Text(
-                              "Back",
-                              style: TextStyle(
-                                  fontSize: height * 0.023, fontWeight: FontWeight.w800),
-                            ),
-                            style: ButtonStyle(
-                              shape: MaterialStateProperty.all(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                              ),
-                              padding: MaterialStateProperty.all(EdgeInsets.all(height * 0.02)),
-                              backgroundColor: MaterialStateProperty.all(Colors.white38),
-                            ),
-                          ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(top: 10),
-                          child: Visibility(
-                            visible: circularProgress,
-                            child: CircularProgressIndicator(),
-                          ),
-                        ),
-                      ],
+                    margin: EdgeInsets.only(top: 10),
+                    child: Visibility(
+                      visible: circularProgress,
+                      child: CircularProgressIndicator(),
                     ),
                   ),
                 ],

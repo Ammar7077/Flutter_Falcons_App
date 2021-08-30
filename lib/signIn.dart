@@ -3,9 +3,12 @@ import 'dart:async';
 import 'package:ffalconsproject/home.dart';
 import 'package:flutter/material.dart';
 import 'package:ffalconsproject/appColors.dart';
+import 'package:provider/provider.dart';
 
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:toast/toast.dart';
+
+import 'appProvider.dart';
 
 class SignIn extends StatefulWidget {
   @override
@@ -157,38 +160,32 @@ class _SignInPageState extends State<SignIn> {
                         ),
                       ),
                     ),
-                    Container(
-                      padding: EdgeInsets.only(
-                          right: width * 0.1, top: height * 0.008),
-                      child: ButtonBar(
-                        children: [
-                          btn("Login", AppColors().myYellow, 'homePage'),
-                          SizedBox(
-                            height: height * 0.01,
-                          ),
-                          SizedBox(
-                            width: width * 0.77,
-                            child: ElevatedButton(
-                              onPressed: () {
-                                Navigator.of(context).pushReplacementNamed('signUp');
-                              },
-                              child: Text(
-                                "Create new account",
-                                style: TextStyle(
-                                    fontSize: height * 0.023, fontWeight: FontWeight.w800),
-                              ),
-                              style: ButtonStyle(
-                                shape: MaterialStateProperty.all(
-                                  RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(15),
-                                  ),
-                                ),
-                                padding: MaterialStateProperty.all(EdgeInsets.all(height * 0.02)),
-                                backgroundColor: MaterialStateProperty.all(Colors.white38),
-                              ),
+                    //AppColors().myYellow
+                    // Provider.of<MyProvider>(context, listen: false).myYellow()
+                    btn("Login",AppColors().myYellow , 'homePage'),
+                    SizedBox(
+                      height: height * 0.01,
+                    ),
+                    SizedBox(
+                      width: width * 0.77,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.of(context).pushReplacementNamed('signUp');
+                        },
+                        child: Text(
+                          "Create new account",
+                          style: TextStyle(
+                              fontSize: height * 0.023, fontWeight: FontWeight.w800),
+                        ),
+                        style: ButtonStyle(
+                          shape: MaterialStateProperty.all(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15),
                             ),
                           ),
-                        ],
+                          padding: MaterialStateProperty.all(EdgeInsets.all(height * 0.02)),
+                          backgroundColor: MaterialStateProperty.all(Colors.white38),
+                        ),
                       ),
                     ),
                     Container(

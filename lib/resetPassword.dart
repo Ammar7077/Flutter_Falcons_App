@@ -122,7 +122,7 @@ class _ResetPasswordPageState extends State<ResetPassword> {
                         child: ButtonBar(
                           children: [
                             btn("Send reset link", AppColors().myYellow),
-                            SizedBox(height: height*0.03),
+                            SizedBox(height: height*0.01),
                             SizedBox(
                               width: width * 0.77,
                               child: ElevatedButton(

@@ -8,17 +8,25 @@ import 'package:flutter/material.dart';
 import 'package:ffalconsproject/home.dart';
 import 'package:ffalconsproject/signUp.dart';
 import 'package:provider/provider.dart';
+import 'appProvider.dart';
 
+import 'testApp.dart';
 
 // Ammar Omari 20180877
 
-void main() {
-  runApp(
-    MaterialApp(
+void main() => MyApp();
+
+class MyApp extends StatelessWidget {
+  // const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
+
       home: ChangeNotifierProvider<MyProvider>(
-          create: (_)=> MyProvider(),
-        child: MyApp()
+        create: (_)=> MyProvider(),
+        child: MainPage(),
       ),
       routes: {
         'homePage':(context)=>Home(),
@@ -26,16 +34,19 @@ void main() {
         'signUp':(context)=>SignUp(),
         'resetPassword':(context)=>ResetPassword(),
       },
-    ),
-  );
+
+    );
+  }
+
 }
 
-class MyApp extends StatefulWidget {
+
+class MainPage extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _MainPageState createState() => _MainPageState();
 }
 
-class _HomePageState extends State<MyApp> {
+class _MainPageState extends State<MainPage> {
   final emailController =TextEditingController();
   final passwordController = TextEditingController();
 
@@ -56,6 +67,7 @@ class _HomePageState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: Center(
         child: Container(
